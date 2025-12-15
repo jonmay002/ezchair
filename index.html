@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZChair Investor | Doug May</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Western Slope Nature Palette */
+            --spruce-dark: #1A3C34; /* Deep evergreen */
+            --sage-muted: #5D7A70;  /* Dusty green */
+            --stone-grey: #F2F4F3;  /* Off-white background */
+            --pure-white: #FFFFFF;
+            --charcoal: #1F2937;
+            
+            /* Spacing & Layout */
+            --container-width: 1000px;
+            --section-spacing: 120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--pure-white);
+            color: var(--charcoal);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        h1, h2, h3 {
+            font-weight: 500; /* Inter looks best at medium weights */
+            letter-spacing: -0.02em;
+            color: var(--spruce-dark);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--spruce-dark);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            opacity: 0.7;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--spruce-dark);
+        }
+
+        /* Special styling for the active Substack link */
+        .nav-cta {
+            color: var(--spruce-dark) !important;
+            opacity: 1 !important;
+            border-bottom: 1px solid var(--spruce-dark);
+            padding-bottom: 2px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--stone-grey);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Split layout for Hero */
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 80px;
+        }
+
+        .hero-image {
+            background-image: url('https://images.unsplash.com/photo-1548589133-c9769db3801f?q=80&w=2070&auto=format&fit=crop'); 
+            /* Subtle Colorado Landscape */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(26, 60, 52, 0.2); /* Slight green overlay */
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 450px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn-minimal {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--spruce-dark);
+            gap: 10px;
+        }
+
+        .btn-minimal:hover {
+            gap: 15px; /* Slide arrow effect */
+        }
+
+        /* --- ABOUT / PHILOSOPHY --- */
+        .section-about {
+            max-width: var(--container-width);
+            margin: var(--section-spacing) auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--sage-muted);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .section-about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-about p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* --- GRID SECTION --- */
+        .grid-section {
+            background-color: var(--pure-white);
+            padding-bottom: var(--section-spacing);
+        }
+
+        .grid-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .card {
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--spruce-dark);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--stone-grey);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-image { height: 300px; order: -1; }
+            .hero-text { padding: 60px 20px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .grid-container { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">EZChair Investor</div>
+        <ul class="nav-links">
+            <li><a href="https://substack.com" target="_blank" class="nav-cta">Substack</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="mailto:doug@ezchairinvestor.com">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>The view from the chair.</h1>
+                <p>Reflections on markets, macroeconomics, and the art of investing well—written from the quiet of the Western Slope.</p>
+                
+                <a href="https://substack.com" class="btn-minimal">
+                    Read the latest notes <span style="font-size: 1.2em;">&rarr;</span>
+                </a>
+            </div>
+            <div class="hero-image">
+                </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-about">
+        <span class="eyebrow">The Approach</span>
+        <h2>Investing shouldn't keep you up at night. It should fund the things that get you up in the morning.</h2>
+        <p>
+            I’m Doug May. After a career managing wealth for retirees, I stepped back to enjoy the landscape of Grand Junction, Colorado. 
+            But an investor never truly stops watching the markets.
+        </p>
+        <p>
+            EZChair Investor is simply my hobbyist outlet. No sales pitches, no products, no noise. Just my personal notes on where the economy is heading, 
+            filtered through decades of experience and delivered with the patience that retirement affords.
+        </p>
+    </section>
+
+    <section class="grid-section">
+        <div class="grid-container">
+            <div class="card">
+                <h3>Macro Perspectives</h3>
+                <p>I look at the big picture—interest rates, global trends, and valuations—to determine if the water is safe for swimming.</p>
+                <a href="https://substack.com" class="btn-minimal">Read on Substack &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Grand Junction Life</h3>
+                <p>Occasionally, I mix financial data with observations from the trail. Because context is everything, and clear thinking requires fresh air.</p>
+                <a href="https://substack.com" class="btn-minimal">Read on Substack &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>EZChair Investor</h3>
+            <div class="footer-links">
+                <a href="https://substack.com">Substack</a>
+                <a href="#about">About</a>
+                <a href="mailto:doug@ezchairinvestor.com">Contact</a>
+            </div>
+            <p class="copyright">
+                &copy; 2024 Doug May. Grand Junction, CO.<br>
+                <span style="opacity: 0.6; font-size: 0.75rem; margin-top: 10px; display: block;">
+                    This website is a personal blog. Nothing herein constitutes professional financial advice.
+                </span>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
